@@ -39,7 +39,7 @@ spec:
   - ceph
   links:
   - name: Ceph Volsync Plugin Operator
-    url: https://ceph-volsync-plugin-operator.domain
+    url: https://github.com/RamenDR/ceph-volsync-plugin
   maintainers:
   - email: rar@redhat.com
     name: Rakshith R
@@ -48,5 +48,5 @@ spec:
   maturity: alpha
   provider:
     name: Red Hat, Inc.
-    url: github.com/RamenDR/ceph-volsync-plugin
+    url: https://github.com/RamenDR/ceph-volsync-plugin
   version: 0.0.0
