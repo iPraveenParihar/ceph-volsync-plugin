@@ -1,0 +1,35 @@
+---
+queue_rules:
+  - name: default
+    merge_method: rebase
+    update_method: rebase
+    batch_size: 1
+    autoqueue: true
+    queue_conditions:
+      - "check-success=build_bundle"
+      - "check-success=build_operator"
+      - "check-success=build_mover"
+      - "check-success=e2e"
+      - "check-success=codespell"
+      - "check-success=golangci-lint"
+      - "check-success=govulncheck"
+      - "#approved-reviews-by>=1"
+      - "#changes-requested-reviews-by=0"
+
+merge_queue:
+  max_parallel_checks: 1
+
+pull_request_rules:
+  - name: Dismiss reviews on update
+    conditions: []
+    actions:
+      dismiss_reviews:
+        approved: true
+        changes_requested: true
+
+  - name: Ask to resolve conflict
+    conditions:
+      - conflict
+    actions:
+      comment:
+        message: "This pull request has merge conflicts. Please resolve them."
